@@ -1,0 +1,8 @@
+RewriteEngine On
+
+# Jangan mengarahkan permintaan untuk file atau folder yang sudah ada
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Arahkan semua permintaan /api/... ke api_handler.php
+RewriteRule ^api/(.*)$ apis.php?request=$1 [QSA,L]
